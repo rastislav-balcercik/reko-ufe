@@ -6,56 +6,58 @@
  */
 import { HTMLStencilElement, JSXBase } from "@stencil/core/internal";
 export namespace Components {
-    interface MyComponent {
-        /**
-          * The first name
-         */
-        "first": string;
-        /**
-          * The last name
-         */
-        "last": string;
-        /**
-          * The middle name
-         */
-        "middle": string;
+    interface XbalcAmbulanceLanding {
+    }
+    interface XbalcAmbulanceRekoEditor {
+    }
+    interface XbalcAmbulanceRekoList {
     }
 }
 declare global {
-    interface HTMLMyComponentElement extends Components.MyComponent, HTMLStencilElement {
+    interface HTMLXbalcAmbulanceLandingElement extends Components.XbalcAmbulanceLanding, HTMLStencilElement {
     }
-    var HTMLMyComponentElement: {
-        prototype: HTMLMyComponentElement;
-        new (): HTMLMyComponentElement;
+    var HTMLXbalcAmbulanceLandingElement: {
+        prototype: HTMLXbalcAmbulanceLandingElement;
+        new (): HTMLXbalcAmbulanceLandingElement;
+    };
+    interface HTMLXbalcAmbulanceRekoEditorElement extends Components.XbalcAmbulanceRekoEditor, HTMLStencilElement {
+    }
+    var HTMLXbalcAmbulanceRekoEditorElement: {
+        prototype: HTMLXbalcAmbulanceRekoEditorElement;
+        new (): HTMLXbalcAmbulanceRekoEditorElement;
+    };
+    interface HTMLXbalcAmbulanceRekoListElement extends Components.XbalcAmbulanceRekoList, HTMLStencilElement {
+    }
+    var HTMLXbalcAmbulanceRekoListElement: {
+        prototype: HTMLXbalcAmbulanceRekoListElement;
+        new (): HTMLXbalcAmbulanceRekoListElement;
     };
     interface HTMLElementTagNameMap {
-        "my-component": HTMLMyComponentElement;
+        "xbalc-ambulance-landing": HTMLXbalcAmbulanceLandingElement;
+        "xbalc-ambulance-reko-editor": HTMLXbalcAmbulanceRekoEditorElement;
+        "xbalc-ambulance-reko-list": HTMLXbalcAmbulanceRekoListElement;
     }
 }
 declare namespace LocalJSX {
-    interface MyComponent {
-        /**
-          * The first name
-         */
-        "first"?: string;
-        /**
-          * The last name
-         */
-        "last"?: string;
-        /**
-          * The middle name
-         */
-        "middle"?: string;
+    interface XbalcAmbulanceLanding {
+    }
+    interface XbalcAmbulanceRekoEditor {
+    }
+    interface XbalcAmbulanceRekoList {
     }
     interface IntrinsicElements {
-        "my-component": MyComponent;
+        "xbalc-ambulance-landing": XbalcAmbulanceLanding;
+        "xbalc-ambulance-reko-editor": XbalcAmbulanceRekoEditor;
+        "xbalc-ambulance-reko-list": XbalcAmbulanceRekoList;
     }
 }
 export { LocalJSX as JSX };
 declare module "@stencil/core" {
     export namespace JSX {
         interface IntrinsicElements {
-            "my-component": LocalJSX.MyComponent & JSXBase.HTMLAttributes<HTMLMyComponentElement>;
+            "xbalc-ambulance-landing": LocalJSX.XbalcAmbulanceLanding & JSXBase.HTMLAttributes<HTMLXbalcAmbulanceLandingElement>;
+            "xbalc-ambulance-reko-editor": LocalJSX.XbalcAmbulanceRekoEditor & JSXBase.HTMLAttributes<HTMLXbalcAmbulanceRekoEditorElement>;
+            "xbalc-ambulance-reko-list": LocalJSX.XbalcAmbulanceRekoList & JSXBase.HTMLAttributes<HTMLXbalcAmbulanceRekoListElement>;
         }
     }
 }
