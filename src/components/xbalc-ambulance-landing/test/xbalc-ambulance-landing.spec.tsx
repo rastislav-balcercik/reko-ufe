@@ -10,7 +10,9 @@ describe('xbalc-ambulance-landing', () => {
     expect(page.root).toEqualHtml(`
       <xbalc-ambulance-landing>
         <mock:shadow-root>
-          <slot></slot>
+          <slot>
+            <h1>Recovery support</h1>
+          </slot>
         </mock:shadow-root>
       </xbalc-ambulance-landing>
     `);
