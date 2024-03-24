@@ -10,7 +10,9 @@ export class XbalcAmbulanceLanding {
   render() {
     return (
       <Host>
-        <slot></slot>
+        <slot>
+          <h1>Recovery support</h1>
+        </slot>
       </Host>
     );
   }
