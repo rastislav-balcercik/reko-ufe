@@ -1,3 +1,114 @@
 :host {
   display: block;
 }
+
+md-list {
+  background-color: var(--color-surface);
+  display: flex;
+  gap: 0.5rem;
+}
+
+md-list-item {
+  display: flex;
+  align-items: center;
+
+  background-color: var(--color-disabled);
+  border-radius: 1rem;
+
+  cursor: pointer;
+
+  transition: 300ms;
+}
+
+md-list-item:hover {
+  background-color: var(--color-primary-light);
+}
+
+.header {
+  display: flex;
+  flex-direction: column;
+  gap: 0.5rem;
+
+  margin-bottom: 1rem;
+}
+
+.header h2 {
+  margin: 0;
+}
+
+.header .total {
+  font-size: 0.8rem;
+  color: var(--color-content-light);
+}
+
+.ticket-item-wrapper {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 1rem;
+}
+
+.status {
+  width: fit-content;
+  padding: 0.1rem 0.5rem;
+  border-radius: 0.5rem;
+
+  font-size: 0.7rem;
+  font-weight: 600;
+  text-transform: uppercase;
+
+  background-color: var(--color-disabled);
+  color: var(--color-content-light);
+}
+
+.status.new {
+  background-color: var(--color-primary);
+  color: var(--color-surface);
+}
+
+.ticket-message {
+  margin-top: 0.5rem;
+
+  font-size: 0.8rem;
+  color: var(--color-content-light);
+
+  max-width: 16rem;
+  white-space: nowrap;
+  overflow: hidden;
+}
+
+.user-info {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+
+  margin-bottom: 3rem;
+}
+
+.user-info md-icon {
+  background-color: var(--color-primary);
+  color: var(--color-surface);
+  border-radius: 50%;
+  padding: .3rem;
+  font-size: 1.2rem;
+}
+
+.user-info .user {
+  display: flex;
+  align-items: center;
+  gap: .5rem;
+
+  font-size: .9rem;
+  font-weight: 500;
+}
+
+.user-info md-filled-button {
+  border-radius: .8rem;
+  font-size: .8rem;
+  font-weight: 500;
+}
+
+.new-ticket {
+  border-radius: 1rem;
+  height: 3rem;
+}

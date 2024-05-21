@@ -11,7 +11,7 @@
     "version": "1.0.0",
     "title": "Reconvalescence Support API",
     "contact": {
-      "email": "<your_email>"
+      "email": "rasto.balcercik@gmail.com"
     },
     "license": {
       "name": "CC BY 4.0",
@@ -168,7 +168,7 @@
                 },
                 "examples": {
                   "response": {
-                    "$ref": "#/components/examples/RecovalescenceTicketExample"
+                    "$ref": "#/components/examples/ReconvalescenceTicketExample"
                   }
                 }
               }
@@ -336,7 +336,7 @@
     "examples": {
       "ReconvalescenceTicketExample": {
         "summary": "Example of reconvalescence ticket",
-        "description": "Example of reconvalescence ticket entry\n",
+        "description": "Example of reconvalescence ticket entry",
         "value": {
           "id": "x321ab3",
           "patientId": "jozko.mrkvicka",
@@ -348,7 +348,7 @@
       },
       "ReconvalescenceTicketListExample": {
         "summary": "List of reconvalescence tickets",
-        "description": "Example list of reconvalescence tickets\n",
+        "description": "Example list of reconvalescence tickets",
         "value": [
           {
             "id": "x321ab3",

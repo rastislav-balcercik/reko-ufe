@@ -10,14 +10,25 @@ export { UserType } from "./utils/enums";
 export namespace Components {
     interface XbalcAmbulanceLanding {
         "apiBase": string;
+        "basePath": string;
     }
     interface XbalcAmbulanceRekoEditor {
-    }
-    interface XbalcAmbulanceRekoList {
         "apiBase": string;
+        "entryId": string;
+        "logout": () => void;
         "userType": UserType;
         "username": string;
     }
+    interface XbalcAmbulanceRekoList {
+        "apiBase": string;
+        "logout": () => void;
+        "userType": UserType;
+        "username": string;
+    }
+}
+export interface XbalcAmbulanceRekoEditorCustomEvent<T> extends CustomEvent<T> {
+    detail: T;
+    target: HTMLXbalcAmbulanceRekoEditorElement;
 }
 export interface XbalcAmbulanceRekoListCustomEvent<T> extends CustomEvent<T> {
     detail: T;
@@ -30,14 +41,25 @@ declare global {
         prototype: HTMLXbalcAmbulanceLandingElement;
         new (): HTMLXbalcAmbulanceLandingElement;
     };
+    interface HTMLXbalcAmbulanceRekoEditorElementEventMap {
+        "editor-closed": string;
+    }
     interface HTMLXbalcAmbulanceRekoEditorElement extends Components.XbalcAmbulanceRekoEditor, HTMLStencilElement {
+        addEventListener<K extends keyof HTMLXbalcAmbulanceRekoEditorElementEventMap>(type: K, listener: (this: HTMLXbalcAmbulanceRekoEditorElement, ev: XbalcAmbulanceRekoEditorCustomEvent<HTMLXbalcAmbulanceRekoEditorElementEventMap[K]>) => any, options?: boolean | AddEventListenerOptions): void;
+        addEventListener<K extends keyof DocumentEventMap>(type: K, listener: (this: Document, ev: DocumentEventMap[K]) => any, options?: boolean | AddEventListenerOptions): void;
+        addEventListener<K extends keyof HTMLElementEventMap>(type: K, listener: (this: HTMLElement, ev: HTMLElementEventMap[K]) => any, options?: boolean | AddEventListenerOptions): void;
+        addEventListener(type: string, listener: EventListenerOrEventListenerObject, options?: boolean | AddEventListenerOptions): void;
+        removeEventListener<K extends keyof HTMLXbalcAmbulanceRekoEditorElementEventMap>(type: K, listener: (this: HTMLXbalcAmbulanceRekoEditorElement, ev: XbalcAmbulanceRekoEditorCustomEvent<HTMLXbalcAmbulanceRekoEditorElementEventMap[K]>) => any, options?: boolean | EventListenerOptions): void;
+        removeEventListener<K extends keyof DocumentEventMap>(type: K, listener: (this: Document, ev: DocumentEventMap[K]) => any, options?: boolean | EventListenerOptions): void;
+        removeEventListener<K extends keyof HTMLElementEventMap>(type: K, listener: (this: HTMLElement, ev: HTMLElementEventMap[K]) => any, options?: boolean | EventListenerOptions): void;
+        removeEventListener(type: string, listener: EventListenerOrEventListenerObject, options?: boolean | EventListenerOptions): void;
     }
     var HTMLXbalcAmbulanceRekoEditorElement: {
         prototype: HTMLXbalcAmbulanceRekoEditorElement;
         new (): HTMLXbalcAmbulanceRekoEditorElement;
     };
     interface HTMLXbalcAmbulanceRekoListElementEventMap {
-        "entryClicked": string;
+        "entry-clicked": string;
     }
     interface HTMLXbalcAmbulanceRekoListElement extends Components.XbalcAmbulanceRekoList, HTMLStencilElement {
         addEventListener<K extends keyof HTMLXbalcAmbulanceRekoListElementEventMap>(type: K, listener: (this: HTMLXbalcAmbulanceRekoListElement, ev: XbalcAmbulanceRekoListCustomEvent<HTMLXbalcAmbulanceRekoListElementEventMap[K]>) => any, options?: boolean | AddEventListenerOptions): void;
@@ -62,12 +84,20 @@ declare global {
 declare namespace LocalJSX {
     interface XbalcAmbulanceLanding {
         "apiBase"?: string;
+        "basePath"?: string;
     }
     interface XbalcAmbulanceRekoEditor {
+        "apiBase"?: string;
+        "entryId"?: string;
+        "logout"?: () => void;
+        "onEditor-closed"?: (event: XbalcAmbulanceRekoEditorCustomEvent<string>) => void;
+        "userType"?: UserType;
+        "username"?: string;
     }
     interface XbalcAmbulanceRekoList {
         "apiBase"?: string;
-        "onEntryClicked"?: (event: XbalcAmbulanceRekoListCustomEvent<string>) => void;
+        "logout"?: () => void;
+        "onEntry-clicked"?: (event: XbalcAmbulanceRekoListCustomEvent<string>) => void;
         "userType"?: UserType;
         "username"?: string;
     }

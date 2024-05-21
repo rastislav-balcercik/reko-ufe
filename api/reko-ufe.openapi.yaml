@@ -7,7 +7,7 @@ info:
   version: '1.0.0'
   title: Reconvalescence Support API
   contact:
-    email: <your_email>
+    email: rasto.balcercik@gmail.com
   license:
     name: CC BY 4.0
     url: 'https://creativecommons.org/licenses/by/4.0/'
@@ -111,7 +111,7 @@ paths:
                 $ref: '#/components/schemas/ReconvalescenceTicket'
               examples:
                 response:
-                  $ref: '#/components/examples/RecovalescenceTicketExample'
+                  $ref: '#/components/examples/ReconvalescenceTicketExample'
         '404':
           description: User or reconvalescence ticket with such ID does not exist
     put:
@@ -219,8 +219,7 @@ components:
   examples:
     ReconvalescenceTicketExample:
       summary: Example of reconvalescence ticket
-      description: |
-        Example of reconvalescence ticket entry
+      description: Example of reconvalescence ticket entry
       value:
         id: x321ab3
         patientId: jozko.mrkvicka
@@ -230,8 +229,7 @@ components:
         surgeryDate: '2038-12-24T10:05:00Z'
     ReconvalescenceTicketListExample:
       summary: List of reconvalescence tickets
-      description: |
-        Example list of reconvalescence tickets
+      description: Example list of reconvalescence tickets
       value:
         - id: x321ab3
           patientId: jozko.mrkvicka
