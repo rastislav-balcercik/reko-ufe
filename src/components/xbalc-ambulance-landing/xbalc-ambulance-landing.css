@@ -2,4 +2,117 @@
   display: flex;
   align-items: center;
   justify-content: center;
+
+  /* Full height - WAC header height */
+  height: calc(100vh - 4rem);
+}
+
+/* Reset used elements */
+div, p, h1 {
+  box-sizing: border-box;
+  margin: 0;
+}
+
+.landing-wrapper {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+
+  gap: 1rem;
+}
+
+.landing-wrapper span {
+  color: var(--color-content-light);
+  margin-bottom: 2rem;
+}
+
+.user-type-wrapper {
+  display: flex;
+  gap: 1rem;
+}
+
+.user-type-card {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+
+  cursor: pointer;
+
+  width: 10rem;
+  height: 12rem;
+
+  border-radius: 1rem;
+  border: 2px solid var(--color-disabled);
+
+  transition: 300ms;
+
+  gap: .5rem;
+}
+
+.user-type-card:not(.active):hover {
+  border-color: var(--color-disabled-dark);
+  background-color: var(--color-disabled-light);
+}
+
+.user-type-card.active {
+  border-color: var(--color-primary);
+  background-color: var(--color-primary-light);
+}
+
+.user-type-card:not(.active):hover md-icon {
+  background-color: var(--color-disabled-dark);
+}
+
+.user-type-card.active md-icon {
+  background-color: var(--color-primary);
+  color: var(--color-surface);
+}
+
+.user-type-card p {
+  font-weight: 500;
+}
+
+.user-type-card md-icon {
+  border-radius: 50%;
+  background-color: var(--color-disabled);
+  padding: .5rem;
+  transition: 300ms;
+}
+
+.continue-button {
+  background-color: var(--color-primary);
+  color: var(--color-surface);
+  
+  border: none;
+  padding: .7rem 1.5rem;
+  border-radius: 1rem;
+
+  font-size: 1rem;
+  font-weight: 500;
+  font-family: inherit;
+
+  cursor: pointer;
+  transition: 300ms;
+
+  margin-top: 1rem;
+}
+
+.continue-button:not(.disabled):hover {
+  background-color: var(--color-primary-dark);
+}
+
+.continue-button.disabled {
+  background-color: var(--color-disabled);
+  cursor: not-allowed;
+}
+
+md-outlined-text-field {
+  width: 100%;
+}
+
+md-filled-button {
+  width: 100%;
+  border-radius: 1rem;
 }

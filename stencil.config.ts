@@ -3,6 +3,7 @@ import { Config } from '@stencil/core';
 export const config: Config = {
   namespace: 'reko-ufe',
   globalScript: 'src/global/app.ts',
+  globalStyle: 'src/global/global.css',
   outputTargets: [
     {
       type: 'dist',

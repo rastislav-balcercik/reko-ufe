@@ -1,0 +1,29 @@
+:root {
+  --color-primary-light: #fff1d6;
+  --color-primary: #ffab3e;
+  --color-primary-dark: #ff8c00;
+
+  --color-disabled-light: #fcfcfc;
+  --color-disabled: #f3f3f3;
+  --color-disabled-dark: #e0e0e0;
+  --color-surface: #fff;
+  
+  --color-content-light: #616161;
+  --color-content: #000;
+
+  --md-outlined-text-field-outline-color: var(--color-disabled);
+  --md-outlined-text-field-hover-outline-color: var(--color-disabled-dark);
+  --md-outlined-text-field-focus-outline-color: var(--color-primary);
+  --md-outlined-text-field-outline-width: 2px;
+  --md-outlined-text-field-focus-outline-width: 2px;
+  --md-outlined-text-field-hover-outline-width: 2px;
+  --md-outlined-text-field-focus-label-text-color: var(--color-primary);
+  --md-outlined-text-field-container-shape: 1rem;
+  --md-outlined-text-field-input-text-font: 'Montserrat', sans-serif;
+  --md-filled-button-label-text-font: 'Montserrat', sans-serif;
+  --md-outlined-text-field-label-text-font: 'Montserrat', sans-serif;
+
+  --md-filled-button-container-color: var(--color-primary);
+
+  font-family: 'Montserrat', sans-serif;
+}
