@@ -211,8 +211,8 @@ components:
           description: Message from the doctor to the patient
         surgeryDate:
           type: string
-          format: date-time
-          example: '2038-12-24T10:05:00Z'
+          format: date
+          example: '2038-12-24'
           description: Timestamp when the user took the surgery or visited the doctor
       example:
         $ref: '#/components/examples/ReconvalescenceTicketExample'
@@ -226,7 +226,7 @@ components:
         doctorId: dr.strange
         message: I took a surgery on my knee, it was successful, but it hurts a lot
         reply: The pain is normal after surgery, take the painkillers and rest
-        surgeryDate: '2038-12-24T10:05:00Z'
+        surgeryDate: '2038-12-24'
     ReconvalescenceTicketListExample:
       summary: List of reconvalescence tickets
       description: Example list of reconvalescence tickets
@@ -236,10 +236,10 @@ components:
           doctorId: dr.strange
           message: I took a surgery on my knee, it was successful, but it hurts a lot
           reply: The pain is normal after surgery, take the painkillers and rest
-          surgeryDate: '2038-12-24T10:05:00Z'
+          surgeryDate: '2038-12-24'
         - id: x321ab4
           patientId: julia.mrkvicka
           doctorId: dr.strange
           message: I took a surgery on my knee, it was successful, but it hurts a lot
           reply: The pain is normal after surgery, take the painkillers and rest
-          surgeryDate: '2038-12-24T10:05:00Z'
+          surgeryDate: '2038-12-24'

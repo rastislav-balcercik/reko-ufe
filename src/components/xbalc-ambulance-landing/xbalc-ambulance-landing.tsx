@@ -133,7 +133,7 @@ export class XbalcAmbulanceLanding {
               apiBase={this.apiBase}
               username={this.username}
               entryId={entryId}
-              oneditor-closed={(ev: CustomEvent<string>) => navigate('./')}
+              oneditor-closed={() => navigate('./')}
             ></xbalc-ambulance-reko-editor>
           )}
         </slot>

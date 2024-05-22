@@ -32,7 +32,7 @@ export class XbalcAmbulanceRekoEditor {
         doctorId: '',
         message: '',
         reply: '',
-        surgeryDate: new Date().toISOString(),
+        surgeryDate: new Date().toISOString().split('T')[0],
       };
       return this.entry;
     }
@@ -70,6 +70,7 @@ export class XbalcAmbulanceRekoEditor {
         this.isValid &&= valid;
       }
     }
+    target.focus();
     return target.value;
   }
 
@@ -111,8 +112,22 @@ export class XbalcAmbulanceRekoEditor {
     }
     return (
       <Host>
+        <div class={'user-info'}>
+          <div class={'user'}>
+            {this.userType === UserType.DOCTOR ? <md-icon>stethoscope</md-icon> : <md-icon>personal_injury</md-icon>}
+            <span>{this.username}</span>
+          </div>
+          <md-filled-button id="cancel" onClick={() => this.editorClosed.emit('cancel')}>
+            <md-icon slot="icon">arrow_back</md-icon>
+            Naspäť
+          </md-filled-button>
+        </div>
+        <div class={'header'}>
+          <h2>{this.entry?.id === '@new' ? 'Nová požiadavka' : 'Požiadavka'}</h2>
+          <span class="total">{this.entry?.id !== '@new' ? 'ID požiadavky:' + this.entry?.id : 'Pokračujte vyplnením údajov'}</span>
+        </div>
         <form ref={el => (this.formElement = el)}>
-          <md-filled-text-field
+          <md-outlined-text-field
             label="Zodpovedný lekár"
             required
             value={this.entry?.doctorId}
@@ -123,26 +138,44 @@ export class XbalcAmbulanceRekoEditor {
             }}
           >
             <md-icon slot="leading-icon">person</md-icon>
-          </md-filled-text-field>
+          </md-outlined-text-field>
+          <md-outlined-text-field
+            label="Deň operácie/vyšetrenia"
+            type="date"
+            value={this.entry?.surgeryDate}
+            required
+            oninput={(ev: InputEvent) => {
+              if (this.entry) {
+                this.entry.surgeryDate = new Date(this.handleInputEvent(ev)).toISOString().split('T')[0];
+              }
+            }}
+          >
+            <md-icon slot="leading-icon">calendar_month</md-icon>
+          </md-outlined-text-field>
 
-          <md-filled-text-field disabled label="Čas operácie/vyšetrenia" value={new Date(this.entry?.surgeryDate || Date.now()).toLocaleTimeString()}>
-            <md-icon slot="leading-icon">login</md-icon>
-          </md-filled-text-field>
+          <md-outlined-text-field
+            type="textarea"
+            label="Požiadavka"
+            placeholder="Vyplňte detaily vašej požiadavky..."
+            rows="3"
+            required
+            value={this.entry?.message}
+            oninput={(ev: InputEvent) => {
+              if (this.entry) {
+                this.entry.message = this.handleInputEvent(ev);
+              }
+            }}
+          ></md-outlined-text-field>
         </form>
-
-        <md-divider></md-divider>
         <div class="actions">
-          <md-filled-tonal-button id="delete" disabled={!this.entry || this.entry?.id === '@new'} onClick={() => this.deleteEntry()}>
+          <md-filled-button id="delete" disabled={!this.entry || this.entry?.id === '@new'} onClick={() => this.deleteEntry()}>
             <md-icon slot="icon">delete</md-icon>
             Zmazať
-          </md-filled-tonal-button>
+          </md-filled-button>
           <span class="stretch-fill"></span>
-          <md-outlined-button id="cancel" onClick={() => this.editorClosed.emit('cancel')}>
-            Zrušiť
-          </md-outlined-button>
           <md-filled-button id="confirm" disabled={!this.isValid} onClick={() => this.updateEntry()}>
-            <md-icon slot="icon">save</md-icon>
-            Uložiť
+            <md-icon slot="icon">send</md-icon>
+            Odoslať
           </md-filled-button>
         </div>
       </Host>
