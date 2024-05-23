@@ -21,7 +21,7 @@ export class XbalcAmbulanceRekoList {
 
   private async getReconvalescenceList(): Promise<ReconvalescenceTicket[]> {
     try {
-      const response = await ReconvalescenceTicketListApiFactory(undefined, this.apiBase).getReconvalescenceList(this.username);
+      const response = await ReconvalescenceTicketListApiFactory(undefined, this.apiBase).getReconvalescenceList(this.username, this.userType);
       if (response.status < 299) {
         return response.data;
       } else {

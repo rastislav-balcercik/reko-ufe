@@ -22,6 +22,7 @@ import { DUMMY_BASE_URL, assertParamExists, setApiKeyToObject, setBasicAuthToObj
 import type { RequestArgs } from './base';
 // @ts-ignore
 import { BASE_PATH, COLLECTION_FORMATS, BaseAPI, RequiredError } from './base';
+import { UserType } from '../../components';
 
 /**
  * 
@@ -158,7 +159,7 @@ export const ReconvalescenceTicketListApiAxiosParamCreator = function (configura
          * @param {*} [options] Override http request option.
          * @throws {RequiredError}
          */
-        getReconvalescenceList: async (userId: string, options: AxiosRequestConfig = {}): Promise<RequestArgs> => {
+        getReconvalescenceList: async (userId: string, userType: UserType, options: AxiosRequestConfig = {}): Promise<RequestArgs> => {
             // verify required parameter 'userId' is not null or undefined
             assertParamExists('getReconvalescenceList', 'userId', userId)
             const localVarPath = `/reconvalescence-list/{userId}/entries`
@@ -172,7 +173,9 @@ export const ReconvalescenceTicketListApiAxiosParamCreator = function (configura
 
             const localVarRequestOptions = { method: 'GET', ...baseOptions, ...options};
             const localVarHeaderParameter = {} as any;
-            const localVarQueryParameter = {} as any;
+            const localVarQueryParameter = {
+              role: userType
+            } as any;
 
 
     
@@ -308,8 +311,8 @@ export const ReconvalescenceTicketListApiFp = function(configuration?: Configura
          * @param {*} [options] Override http request option.
          * @throws {RequiredError}
          */
-        async getReconvalescenceList(userId: string, options?: AxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<Array<ReconvalescenceTicket>>> {
-            const localVarAxiosArgs = await localVarAxiosParamCreator.getReconvalescenceList(userId, options);
+        async getReconvalescenceList(userId: string, userType: UserType, options?: AxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<Array<ReconvalescenceTicket>>> {
+            const localVarAxiosArgs = await localVarAxiosParamCreator.getReconvalescenceList(userId, userType, options);
             return createRequestFunction(localVarAxiosArgs, globalAxios, BASE_PATH, configuration);
         },
         /**
@@ -376,8 +379,8 @@ export const ReconvalescenceTicketListApiFactory = function (configuration?: Con
          * @param {*} [options] Override http request option.
          * @throws {RequiredError}
          */
-        getReconvalescenceList(userId: string, options?: any): AxiosPromise<Array<ReconvalescenceTicket>> {
-            return localVarFp.getReconvalescenceList(userId, options).then((request) => request(axios, basePath));
+        getReconvalescenceList(userId: string, userType: UserType, options?: any): AxiosPromise<Array<ReconvalescenceTicket>> {
+            return localVarFp.getReconvalescenceList(userId, userType, options).then((request) => request(axios, basePath));
         },
         /**
          * Returns the details of the reconvalescence ticket
@@ -441,7 +444,7 @@ export interface ReconvalescenceTicketListApiInterface {
      * @throws {RequiredError}
      * @memberof ReconvalescenceTicketListApiInterface
      */
-    getReconvalescenceList(userId: string, options?: AxiosRequestConfig): AxiosPromise<Array<ReconvalescenceTicket>>;
+    getReconvalescenceList(userId: string, userType: UserType, options?: AxiosRequestConfig): AxiosPromise<Array<ReconvalescenceTicket>>;
 
     /**
      * Returns the details of the reconvalescence ticket
@@ -509,8 +512,8 @@ export class ReconvalescenceTicketListApi extends BaseAPI implements Reconvalesc
      * @throws {RequiredError}
      * @memberof ReconvalescenceTicketListApi
      */
-    public getReconvalescenceList(userId: string, options?: AxiosRequestConfig) {
-        return ReconvalescenceTicketListApiFp(this.configuration).getReconvalescenceList(userId, options).then((request) => request(this.axios, this.basePath));
+    public getReconvalescenceList(userId: string, userType: UserType, options?: AxiosRequestConfig) {
+        return ReconvalescenceTicketListApiFp(this.configuration).getReconvalescenceList(userId, userType, options).then((request) => request(this.axios, this.basePath));
     }
 
     /**
