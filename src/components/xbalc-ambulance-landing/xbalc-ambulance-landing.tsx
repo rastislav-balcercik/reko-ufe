@@ -132,6 +132,7 @@ export class XbalcAmbulanceLanding {
               logout={() => this.handleLogoutUser()}
               apiBase={this.apiBase}
               username={this.username}
+              userType={this.selectedUserType}
               entryId={entryId}
               oneditor-closed={() => navigate('./')}
             ></xbalc-ambulance-reko-editor>

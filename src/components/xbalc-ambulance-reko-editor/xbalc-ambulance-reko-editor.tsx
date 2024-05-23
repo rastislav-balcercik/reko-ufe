@@ -166,6 +166,21 @@ export class XbalcAmbulanceRekoEditor {
               }
             }}
           ></md-outlined-text-field>
+          {this.entryId !== '@new' && this.userType === UserType.DOCTOR && (
+            <md-outlined-text-field
+              type="textarea"
+              label="Odpoveď"
+              placeholder="Vyplňte odpoveď na túto požiadavku..."
+              rows="3"
+              required
+              value={this.entry?.reply}
+              oninput={(ev: InputEvent) => {
+                if (this.entry) {
+                  this.entry.reply = this.handleInputEvent(ev);
+                }
+              }}
+            ></md-outlined-text-field>
+          )}
         </form>
         <div class="actions">
           <md-filled-button id="delete" disabled={!this.entry || this.entry?.id === '@new'} onClick={() => this.deleteEntry()}>
