@@ -59,7 +59,7 @@ export class XbalcAmbulanceRekoList {
               <md-list-item onclick={() => this.entryClicked.emit(ticket.id)}>
                 <div class={'ticket-item-wrapper'}>
                   <div class={'ticket-name'}>{ticket.patientId}</div>
-                  {this.userType === UserType.DOCTOR && <div class={{ status: true, new: !!ticket.reply }}>{ticket.reply ? 'Nové' : 'Vyriešené'}</div>}
+                  {this.userType === UserType.DOCTOR && <div class={{ status: true, new: !!ticket.reply }}>{ticket.reply ? 'Vyriešené' : 'Nové'}</div>}
                   {this.userType === UserType.PATIENT && <div class={{ status: true, new: !!ticket.reply }}>{ticket.reply ? 'Vyriešené' : 'Čaká na odpoveď'}</div>}
                 </div>
                 <div class={'ticket-message'}>

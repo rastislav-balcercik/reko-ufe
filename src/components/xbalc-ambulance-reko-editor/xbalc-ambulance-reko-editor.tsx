@@ -124,7 +124,7 @@ export class XbalcAmbulanceRekoEditor {
         </div>
         <div class={'header'}>
           <h2>{this.entry?.id === '@new' ? 'Nová požiadavka' : 'Požiadavka'}</h2>
-          <span class="total">{this.entry?.id !== '@new' ? 'ID požiadavky:' + this.entry?.id : 'Pokračujte vyplnením údajov'}</span>
+          <span class="total">{this.entry?.id !== '@new' ? 'ID požiadavky: ' + this.entry?.id : 'Pokračujte vyplnením údajov'}</span>
         </div>
         <form ref={el => (this.formElement = el)}>
           <md-outlined-text-field
